@@ -47,7 +47,7 @@ void w_write (adr a, word val) {
 }
 void load_file() {
     //FILE *f_in = stdin;
-    FILE *f_in = fopen("C:\\Users\маша\st77812\sum_o.txt", "r");
+    FILE *f_in = fopen("C:\\Users\\маша\\st77812\\sum_o.txt", "r");
     if (f_in == NULL) {
         perror("sum_o.txt");
     };
@@ -91,7 +91,7 @@ word nn;	// глобальная, значение nn
 word get_nn (word w) {
     return (w&077);
 }
-SSDD get_mr(word w) {
+SSDD get_mr(word w) { //get mode register
     SSDD res;
     int rn = w & 7;// номер регистра, последние 3 бита
     int mode = (w >>3)& 7;// номер моды, первые 3 бита
@@ -122,11 +122,11 @@ SSDD get_mr(word w) {
 }
 
 void dump_reg () {
-int i;
-for (i = 0; i < 8; i++) {
-printf("R%d : %06o ", i, reg[i]);
-}
-printf("\n");
+    int i;
+    for (i = 0; i < 8; i++) {
+        printf("R%d : %06o ", i, reg[i]);
+    }
+        printf("\n");
 }
 
 void do_halt() {
